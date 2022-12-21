@@ -20,7 +20,7 @@ st.subheader("This app downloads the exchange rate from  the NBP website and "
 st.write("Please insert invoice date below(from 2002-01-01):")
 date = st.text_input(label="", placeholder="YYYY-MM-DD", key='invoice_date')
 st.write("Please insert currency below:")
-currency = st.st.selectbox("Please insert currency below:", (currencies))
+currency = st.selectbox('Please insert currency below:', (currencies))
 st.write("Please insert amount below:")
 amount = st.text_input(label="", placeholder="E.g. 10000.00", key='amount')
 
