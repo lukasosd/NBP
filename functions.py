@@ -1,5 +1,4 @@
 import requests
-import streamlit as st
 from datetime import datetime, timedelta
 
 def cur_import(currency, date):
