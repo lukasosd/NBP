@@ -24,6 +24,6 @@ def result(exchange_rate, amount):
     amount = float(amount.replace(',','.'))
     exchange_rate = float(exchange_rate)
     text = f'''Kurs:{exchange_rate}
-    Calculated money: {amount*exchange_rate}
+    Calculated amout: {amount*exchange_rate}
     '''
     return text
