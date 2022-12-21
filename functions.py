@@ -1,6 +1,13 @@
 import requests
+import streamlit as st
 from datetime import datetime, timedelta
 
+def calculate(currency, date, amount):
+    new_date = day_before(date)
+    exchange_rate = cur_import(currency,new_date)
+    message = result(exchange_rate, amount)
+    global text
+    text = st.text_area('Result', value=message)
 def cur_import(currency, date):
     while True:
         url = f'https://api.nbp.pl/api/exchangerates/rates/a/{currency}/{date}'

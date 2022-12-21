@@ -2,12 +2,6 @@ import streamlit as st
 import functions
 
 currencies = ('EUR', 'USD', 'CHF')
-def calculate(currency, date, amount):
-    new_date = functions.day_before(date)
-    exchange_rate = functions.cur_import(currency,new_date)
-    message = functions.result(exchange_rate, amount)
-    global text
-    text = st.text_area('Result', value=message)
 
 st.set_page_config(layout="wide")
 
@@ -25,7 +19,7 @@ amount = st.text_input(label="Please insert amount below:",
 
 if (st.button('Submit')):
     try:
-        calculate(currency, date, amount)
+        functions.calculate(currency, date, amount)
     except:
         st.error('Incorrect data')
 
