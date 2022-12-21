@@ -17,12 +17,11 @@ font-size:60px ; font-family: 'Cooper Black'; color: #3230b8;}
 st.markdown('<p class="font">CURRENCY CONVERTER</p>', unsafe_allow_html=True)
 st.subheader("This app downloads the day before invoice date exchange rate from "
              "the NBP website and calculates the given amount to PLN.")
-st.write("Please insert invoice date below(from 01.01.2002):")
-date = st.text_input(label="", placeholder="DD.MM.YYYY", key='invoice_date')
-st.write("Please insert currency below:")
+date = st.text_input(label="Please insert invoice date below(from 01.01.2002):",
+                     placeholder="DD.MM.YYYY", key='invoice_date')
 currency = st.selectbox('Please insert currency below:', (currencies))
-st.write("Please insert amount below:")
-amount = st.text_input(label="", placeholder="E.g. 10000.00", key='amount')
+amount = st.text_input(label="Please insert amount below:",
+                       placeholder="E.g. 10000.00", key='amount')
 
 if (st.button('Submit')):
     try:
