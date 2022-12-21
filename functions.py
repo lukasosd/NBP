@@ -1,4 +1,5 @@
 import requests
+import streamlit as st
 from datetime import datetime, timedelta
 
 def cur_import(currency, date):
@@ -16,8 +17,9 @@ def cur_import(currency, date):
 
 
 def day_before(date):
-    date = date.replace('/', '-')
-    date = date.replace('.', '-')
+    date = date.replace('/', '-').replace('.', '-')
+    date_split = date.split('-')
+    date = date_split[2] + '-' + date_split[1] + '-' + date_split[0]
     date_time_obj = datetime.strptime(date, '%Y-%m-%d')
     calculation = str(date_time_obj - timedelta(days=1))
     return calculation[:10]
