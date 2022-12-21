@@ -16,15 +16,16 @@ def cur_import(currency, date):
 
 
 def day_before(date):
-    date = date.replace('/', '-').replace('.', '-')
+    date = date.replace('/', '-')
+    date = date.replace('.', '-')
     date_time_obj = datetime.strptime(date, '%Y-%m-%d')
     calculation = str(date_time_obj - timedelta(days=1))
     return calculation[:10]
 
 def result(exchange_rate, amount):
     amount = float(amount.replace(',','.'))
-    exchange_rate = round(float(exchange_rate),2)
+    exchange_rate = float(exchange_rate)
     text = f'''Exchange rate:{exchange_rate}
-    Calculated amount: {amount*exchange_rate}
+    Calculated amount: {round(amount*exchange_rate,2)}
     '''
     return text
