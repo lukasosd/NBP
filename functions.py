@@ -23,7 +23,7 @@ def day_before(date):
 def result(exchange_rate, amount):
     amount = float(amount.replace(',','.'))
     exchange_rate = float(exchange_rate)
-    text = f'''Kurs:{exchange_rate}
+    text = f'''Exchange rate:{exchange_rate}
     Calculated amount: {amount*exchange_rate}
     '''
     return text
