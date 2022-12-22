@@ -35,8 +35,9 @@ def result(exchange_rate, amount, date):
     amount = float(amount.replace(',','.'))
     exchange_rate = float(exchange_rate)
     pln = round(amount*exchange_rate,2)
-    text = f'''Exchange rate:{exchange_rate}
-    CIT,VAT:Ex. Rate from: {date} 
+    text = f'''
+    Exchange rate:{exchange_rate}
+    Ex. Rate from: {date} 
     Invoice amount: {amount} 
     Amount in PLN: {pln} 
     VAT: {pln*0.23}
