@@ -14,12 +14,12 @@ st.subheader("This app downloads the day before invoice date exchange rate from 
 date = st.text_input(label="Please insert invoice date below(from 01.01.2002):",
                      placeholder="DD.MM.YYYY", key='invoice_date')
 currency = st.selectbox('Please insert currency below:', (currencies))
-amount = st.text_input(label="Please insert amount below:",
+invoice_amount = st.text_input(label="Please insert amount below:",
                        placeholder="E.g. 10000.00", key='amount')
 
 if (st.button('Submit')):
     try:
-        functions.calculate(currency, date, amount)
+        functions.calculate(currency, date, invoice_amount)
     except:
         st.error('Incorrect data')
 

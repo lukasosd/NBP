@@ -4,10 +4,10 @@ from datetime import datetime, timedelta
 
 def calculate(currency, date, amount):
     new_date = day_before(date)
-    exchange_rate = cur_import(currency,new_date)
-    message = result(exchange_rate, amount)
+    exchange_rate, date = cur_import(currency,new_date)
+    message = result(exchange_rate, amount, date)
     global text
-    text = st.text_area('Result', value=message)
+    text = st.text_area('Result', value=message, height=150)
 def cur_import(currency, date):
     while True:
         url = f'https://api.nbp.pl/api/exchangerates/rates/a/{currency}/{date}'
@@ -19,7 +19,7 @@ def cur_import(currency, date):
 
     data = response.json()
     exchange_rate = data['rates'][0]['mid']
-    return exchange_rate
+    return exchange_rate, date
 
 
 def day_before(date):
@@ -31,10 +31,14 @@ def day_before(date):
     calculation = str(date_time_obj - timedelta(days=1))
     return calculation[:10]
 
-def result(exchange_rate, amount):
+def result(exchange_rate, amount, date):
     amount = float(amount.replace(',','.'))
     exchange_rate = float(exchange_rate)
+    pln = round(amount*exchange_rate,2)
     text = f'''Exchange rate:{exchange_rate}
-    Calculated amount: {round(amount*exchange_rate,2)}
+    CIT,VAT:Ex. Rate from: {date} 
+    Invoice amount: {amount} 
+    Amount in PLN: {pln} 
+    VAT: {pln*0.23}
     '''
     return text
