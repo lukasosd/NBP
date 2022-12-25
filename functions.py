@@ -39,6 +39,6 @@ def result(exchange_rate, amount, date):
 Ex. Rate from: {date} 
 Invoice amount: {amount} 
 Amount in PLN: {pln} 
-VAT: {pln*0.23}
+VAT: {round(pln*0.23, 2)}
 '''
     return text
