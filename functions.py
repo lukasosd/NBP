@@ -19,6 +19,7 @@ def cur_import(currency, date):
 
     data = response.json()
     exchange_rate = data['rates'][0]['mid']
+    exchange_rate = exchange_rate.replace('.', ',')
     return exchange_rate, date
 
 
