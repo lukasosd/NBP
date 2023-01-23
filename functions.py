@@ -19,7 +19,6 @@ def cur_import(currency, date):
 
     data = response.json()
     exchange_rate = data['rates'][0]['mid']
-    exchange_rate = exchange_rate.replace('.', ',')
     return exchange_rate, date
 
 
@@ -34,8 +33,8 @@ def day_before(date):
 
 def result(exchange_rate, amount, date):
     amount = float(amount.replace(',','.'))
-    exchange_rate = float(exchange_rate)
     pln = round(amount*exchange_rate,2)
+    exchange_rate = str(exchange_rate).replace('.', ',')
     text = f'''Exchange rate: {exchange_rate}
 Ex. Rate from: {date} 
 Invoice amount: {amount} 
